@@ -10,19 +10,17 @@ const app = express();
 console.log("🚀 Members routes file loaded");
 
 /* ---------- CORS ---------- */
-app.use(
-  cors({
-    origin: [
-      "https://usc-kiit-members.vercel.app",
-      "http://localhost:5173"
-    ],
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    credentials: true
-  })
-);
+const corsOptions = {
+  origin: [
+    "https://usc-kiit-members.vercel.app",
+    "https://usc-kiit-members-2owpmhf6u-kumar-kushangs-projects.vercel.app",
+    "http://localhost:5173"
+  ],
+  methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
+  credentials: true
+};
 
-// VERY IMPORTANT: Enable preflight for all routes
-app.options("/*", cors());
+app.use(cors(corsOptions));
 
 /* ---------- BODY ---------- */
 app.use(express.json());
