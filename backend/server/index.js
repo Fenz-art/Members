@@ -5,6 +5,9 @@ import membersRoutes from "./routes/members.routes.js";
 
 const app = express();
 
+// Debug: verify routes file import is loaded
+console.log("🚀 Members routes file loaded");
+
 /* ---------- CORS ---------- */
 app.use(
   cors({
@@ -31,6 +34,7 @@ app.get("/api/health", (req, res) => {
 });
 
 app.use("/api/members", membersRoutes);
+console.log("✅ /api/members route mounted");
 
 /* ---------- ROOT ---------- */
 app.get("/", (req, res) => {
