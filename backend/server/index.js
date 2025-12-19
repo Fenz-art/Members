@@ -12,12 +12,8 @@ console.log("🚀 Members routes file loaded");
 /* ---------- CORS ---------- */
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://usc-kiit-members.vercel.app",
-    ],
+    origin: [process.env.CLIENT_URL],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
