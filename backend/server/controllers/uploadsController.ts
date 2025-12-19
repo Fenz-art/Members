@@ -16,7 +16,7 @@ export const uploadAvatar = async (req: Request, res: Response) => {
       transformation: [{ width: 512, height: 512, crop: 'fill', gravity: 'faces' }],
     })
 
-    return res.status(201).json({ url: result.secure_url })
+    return res.status(200).json({ success: true, imageUrl: result.secure_url })
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error('Upload error', err)
