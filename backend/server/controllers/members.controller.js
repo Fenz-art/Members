@@ -12,14 +12,38 @@ export const getPendingMembers = async (req, res) => {
 
 export const createMember = async (req, res) => {
   try {
-    const member = await Member.create(req.body);
+    const {
+      name,
+      linkedinUrl,
+      githubUrl,
+      instagramUrl,
+      domain,
+      isLead,
+      profileImageUrl // 👈 MUST be here
+    } = req.body;
+
+    if (!profileImageUrl) {
+      return res.status(400).json({
+        success: false,
+        message: "Profile image is required"
+      });
+    }
+
+    const member = await Member.create({
+      name,
+      linkedinUrl,
+      githubUrl,
+      instagramUrl,
+      domain,
+      isLead,
+      profileImageUrl, // 👈 SAVED HERE
+      approved: false
+    });
+
     res.status(201).json({ success: true, member });
   } catch (err) {
-    console.error("Create member error:", err);
-    res.status(500).json({
-      success: false,
-      message: "Server error"
-    });
+    console.error(err);
+    res.status(500).json({ success: false, message: "Server error" });
   }
 };
 
