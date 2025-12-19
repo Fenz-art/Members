@@ -22,7 +22,7 @@ app.use(
 );
 
 // VERY IMPORTANT: Enable preflight for all routes
-app.options("*", cors());
+app.options("/*", cors());
 
 /* ---------- BODY ---------- */
 app.use(express.json());
