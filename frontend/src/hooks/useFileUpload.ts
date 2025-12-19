@@ -9,7 +9,7 @@ export function useFileUpload() {
     setUploading(true)
     setError(null)
     const formData = new FormData()
-    formData.append('file', file)
+    formData.append('avatar', file)
 
     const res = await fetch(`${API_URL}/api/uploads/avatar`, {
       method: 'POST',
