@@ -47,7 +47,9 @@ app.use((err, req, res, next) => {
   res.status(500).json({ success: false, message: "Server error" });
 });
 
-const PORT = process.env.PORT || 5000;
+// Remove fallback, Railway requires strict PORT usage
+const PORT = process.env.PORT;
+console.log("Listening on PORT:", PORT);
 app.listen(PORT, () => {
   console.log("Backend running on port", PORT);
 });
