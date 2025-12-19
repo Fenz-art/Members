@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express'
-import { cloudinary } from '../config/cloudinary'
+import { cloudinary } from '../config/cloudinary.ts'
 
 export const uploadAvatar = async (req: Request, res: Response) => {
   try {
