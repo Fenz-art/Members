@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import connectDB from "./db/connectDB.js";
 import membersRoutes from "./routes/members.routes.js";
-import uploadsRoutes from "./routes/uploads.js";
+import uploadsRoutes from "./routes/uploads.routes.js";
 
 const app = express();
 
