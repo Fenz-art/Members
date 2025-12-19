@@ -20,7 +20,7 @@ export function MemberCard({ member }: Props) {
       <div className="relative pt-12 pb-4 px-4">
         <div className="mx-auto w-44 h-56 overflow-hidden rounded-xl border-2 border-slate-700 group-hover:border-uscGold/60 transition-colors">
           <img
-            src={member.profileImageUrl}
+            src={member.profileImageUrl || "/default-avatar.svg"}
             alt={member.name}
             className="h-full w-full object-cover object-top"
           />
