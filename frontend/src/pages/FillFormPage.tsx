@@ -46,6 +46,12 @@ export function FillFormPage() {
         imageUrl = await upload(file)
         setProfileImageUrl(imageUrl)
       }
+      // Guard: do not submit if imageUrl is still missing
+      if (!imageUrl) {
+        setSubmitError('Image upload failed. Please try again.')
+        setSubmitting(false)
+        return
+      }
 
       await api('/api/members', {
         method: 'POST',
