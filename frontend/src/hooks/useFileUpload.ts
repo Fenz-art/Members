@@ -23,9 +23,9 @@ export function useFileUpload() {
       throw new Error(text || 'Upload failed')
     }
 
-    const data = (await res.json()) as { url: string }
+    const data = (await res.json()) as { imageUrl: string }
     setUploading(false)
-    return data.url
+    return data.imageUrl
   }
 
   return { upload, uploading, error }

@@ -36,16 +36,14 @@ export function FillFormPage() {
     try {
       setSubmitting(true)
 
-      let imageUrl = profileImageUrl
-      if (!imageUrl) {
-        if (!file) {
-          setSubmitError('Please upload a profile photo.')
-          setSubmitting(false)
-          return
-        }
-        imageUrl = await upload(file)
-        setProfileImageUrl(imageUrl)
+      let imageUrl = ''
+      if (!file) {
+        setSubmitError('Please upload a profile photo.')
+        setSubmitting(false)
+        return
       }
+      imageUrl = await upload(file) // always use returned value
+
       // Guard: do not submit if imageUrl is still missing
       if (!imageUrl) {
         setSubmitError('Image upload failed. Please try again.')
