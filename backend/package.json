@@ -15,5 +15,8 @@
     "mongoose": "^9.0.1",
     "cloudinary": "^2.8.0",
     "multer": "^2.0.2"
-  }
+  },
+  "engines": {
+  "node": "22.x"
+}
 }
