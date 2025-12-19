@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import connectDB from "./db/connectDB.js";
 import membersRoutes from "./routes/members.routes.js";
+import uploadsRoutes from "./routes/uploads.js";
 
 const app = express();
 
@@ -35,6 +36,8 @@ app.get("/api/health", (req, res) => {
 
 app.use("/api/members", membersRoutes);
 console.log("✅ /api/members route mounted");
+
+app.use("/api/uploads", uploadsRoutes);
 
 /* ---------- ROOT ---------- */
 app.get("/", (req, res) => {
