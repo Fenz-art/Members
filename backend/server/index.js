@@ -12,12 +12,17 @@ console.log("🚀 Members routes file loaded");
 /* ---------- CORS ---------- */
 app.use(
   cors({
-    origin: [process.env.CLIENT_URL],
+    origin: [
+      "https://usc-kiit-members.vercel.app",
+      "http://localhost:5173"
+    ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    credentials: true,
+    credentials: true
   })
 );
-// Preflight is handled by the global CORS middleware in Express 5
+
+// VERY IMPORTANT: Enable preflight for all routes
+app.options("*", cors());
 
 /* ---------- BODY ---------- */
 app.use(express.json());
